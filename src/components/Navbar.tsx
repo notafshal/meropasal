@@ -26,7 +26,7 @@ const Navbar = () => {
                   Home
                 </li>
               </Link>
-              <Link href="">
+              <Link href="/category">
                 <li className="hover:bg-white hover:text-red-500 px-2 rounded-sm">
                   Category
                 </li>
@@ -57,7 +57,7 @@ const Navbar = () => {
                 {" "}
                 <li className=" ">Home</li>
               </Link>
-              <Link href="">
+              <Link href="/category">
                 <li>Category</li>
               </Link>
 
