@@ -12,7 +12,7 @@ const Card = (product: Products) => {
     : `https://fakestoreapi.com${product.image}`;
   return (
     <>
-      <div className="bg-slate-200 p-10 my-5 hover:bg-red-300 cursor-pointer transition-all rounded-lg">
+      <div className="bg-slate-200 p-10 my-5 h-fit md:h-full hover:bg-red-300 cursor-pointer transition-all rounded-lg">
         <Image
           src={product.image}
           width={150}
@@ -20,9 +20,9 @@ const Card = (product: Products) => {
           className="rounded-lg mx-auto mb-4 h-2/3"
           alt={product.title}
         />
-        <p className="h-11 overflow-hidden">{product.title}</p>
+        <p className="h-11 overflow-hidden font-semibold">{product.title}</p>
         <br />
-        <p className="my-2">
+        <p className="my-1">
           {" "}
           <span className="text-green-700">Price</span> : Rs.
           {product.price}

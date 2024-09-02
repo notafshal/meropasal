@@ -1,6 +1,5 @@
 "use client";
 import Card from "@/components/Card";
-import Navbar from "@/components/Navbar";
 
 import axios from "axios";
 import { get } from "http";
@@ -19,16 +18,23 @@ export default function Home() {
 
   return (
     <>
-      <Navbar />
-      <div className="m-10">
-        <div className="object-fit grid md:grid-cols-3 lg:grid-cols-4 gap-4">
+      <h1 className="text-center mt-5 font-semibold">
+        All{" "}
+        <span className="bg-red-500 text-white p-1 border-none">Products</span>
+      </h1>
+      <div className="m-8">
+        <div className="object-fit grid md:grid-cols-3 lg:grid-cols-4 gap-6">
           {data.map((product) => (
-            <Card
-              key={product.id}
-              image={product.image}
-              title={product.title}
-              price={product.price}
-            ></Card>
+            <>
+              <Link href={`/product/${product.id}`}>
+                <Card
+                  key={product.id}
+                  image={product.image}
+                  title={product.title}
+                  price={product.price}
+                ></Card>
+              </Link>
+            </>
           ))}
         </div>
       </div>
