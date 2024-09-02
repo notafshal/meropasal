@@ -29,7 +29,7 @@ const ProductPage = ({ params }: { params: { id: string } }) => {
           </p>
 
           <p className="font-light text-sm ">{productDetails?.description}</p>
-          <p className="font-light text-sm text-red-500">
+          <p className="font-semibold md:text-lg text-sm text-red-500">
             Rs. {productDetails?.price}
           </p>
           <div className="flex gap-4">
@@ -45,7 +45,7 @@ const ProductPage = ({ params }: { params: { id: string } }) => {
             Total Purchases : {productDetails?.rating.count}
           </p>
           <p className="text-sm bg-yellow-400 p-2 rounded-xl text-center text-white font-semibold ">
-            Rating {productDetails?.rating.rate} / 5
+            Rating : {productDetails?.rating.rate} / 5
           </p>
         </div>
       </div>

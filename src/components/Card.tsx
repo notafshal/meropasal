@@ -17,7 +17,7 @@ const Card = (product: Products) => {
           src={product.image}
           width={150}
           height={150}
-          className="rounded-lg mx-auto mb-4 h-2/3"
+          className="rounded-lg mx-auto mb-4 h-2/3 hover:w-72 h-72"
           alt={product.title}
         />
         <p className="h-11 overflow-hidden font-semibold">{product.title}</p>
