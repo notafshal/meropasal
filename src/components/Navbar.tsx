@@ -37,7 +37,9 @@ const Navbar = () => {
               </li>
             </ul>
           </div>
-          <FaShoppingCart className="mx-3 text-[1.5em] text-white md:ml-32 hover:bg-white hover:text-red-500 rounded-sm cursor-pointer" />
+          <Link href="/cart">
+            <FaShoppingCart className="mx-3 text-[1.5em] text-white md:ml-32 hover:bg-white hover:text-red-500 rounded-sm cursor-pointer" />
+          </Link>
         </div>
         <div className="m-3 ">
           <button className="md:hidden" onClick={toogleNav}>

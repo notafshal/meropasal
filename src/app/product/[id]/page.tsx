@@ -1,10 +1,24 @@
 "use client";
 import axios from "axios";
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useState } from "react";
-
-const ProductPage = ({ params }: { params: { id: string } }) => {
-  const [productDetails, setProductDetails] = useState<any>();
+import { useCart } from "react-use-cart";
+interface ProductDetails {
+  id: number;
+  title: string;
+  price: number;
+  description: string;
+  category: string;
+  image: any;
+  rating: {
+    rate: number;
+    count: number;
+  };
+}
+const ProductPage = ({ params }: { params: { id: number } }) => {
+  const { addItem } = useCart();
+  const [productDetails, setProductDetails] = useState<ProductDetails | null>();
   useEffect(() => {
     axios.get(`https://fakestoreapi.com/products/${params.id}`).then((res) => {
       console.log(res.data);
@@ -27,20 +41,21 @@ const ProductPage = ({ params }: { params: { id: string } }) => {
           <p className="font-extralight text-sm  ">
             Category: {productDetails?.category}
           </p>
-
           <p className="font-light text-sm ">{productDetails?.description}</p>
           <p className="font-semibold md:text-lg text-sm text-red-500">
             Rs. {productDetails?.price}
-          </p>
+          </p>{" "}
           <div className="flex gap-4">
-            <button className="bg-red-500 p-3 text-white font-semibold rounded-sm">
-              Buy Now
-            </button>
+            <Link href="/cart">
+              <button className="bg-red-500 p-3 text-white font-semibold rounded-sm">
+                Buy Now
+              </button>
+            </Link>
+
             <button className="bg-red-500 p-3 text-white font-semibold rounded-sm">
               Add to Cart
             </button>
           </div>
-
           <p className=" text-sm bg-yellow-400 p-2 rounded-xl text-center text-white font-semibold ">
             Total Purchases : {productDetails?.rating.count}
           </p>
