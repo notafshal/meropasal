@@ -17,7 +17,6 @@ interface ProductDetails {
   };
 }
 const ProductPage = ({ params }: { params: { id: number } }) => {
-  const { addItem } = useCart();
   const [productDetails, setProductDetails] = useState<ProductDetails | null>();
   useEffect(() => {
     axios.get(`https://fakestoreapi.com/products/${params.id}`).then((res) => {
@@ -46,13 +45,14 @@ const ProductPage = ({ params }: { params: { id: number } }) => {
             Rs. {productDetails?.price}
           </p>{" "}
           <div className="flex gap-4">
-            <Link href="/cart">
-              <button className="bg-red-500 p-3 text-white font-semibold rounded-sm">
-                Buy Now
-              </button>
-            </Link>
-
             <button className="bg-red-500 p-3 text-white font-semibold rounded-sm">
+              Buy Now
+            </button>
+
+            <button
+              className="bg-red-500 p-3 text-white font-semibold rounded-sm"
+              onClick={() => {}}
+            >
               Add to Cart
             </button>
           </div>

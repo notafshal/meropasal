@@ -62,8 +62,9 @@ const Navbar = () => {
               <Link href="/category">
                 <li>Category</li>
               </Link>
-
-              <li>SignIn</li>
+              <Link href="/login">
+                <li>SignIn</li>
+              </Link>
             </ul>
           </div>
         </div>
