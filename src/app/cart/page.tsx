@@ -6,13 +6,12 @@ import { CartProvider, useCart } from "react-use-cart";
 const Cart = () => {
   const { isEmpty, totalUniqueItems, items, updateItemQuantity, removeItem } =
     useCart();
+  console.log(items);
   if (isEmpty) return <p className="text-center my-2">Your cart is Empty</p>;
-  useEffect(() => {
-    axios.get("https://fakestoreapi.com/carts");
-  });
+
   return (
     <>
-      <div>
+      <div className="h-lvh overflow-scroll ">
         <div>
           <h1 className="text-center my-4">
             Your

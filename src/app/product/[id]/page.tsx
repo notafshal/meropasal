@@ -17,6 +17,7 @@ interface ProductDetails {
   };
 }
 const ProductPage = ({ params }: { params: { id: number } }) => {
+  const { addItem } = useCart();
   const [productDetails, setProductDetails] = useState<ProductDetails | null>();
   useEffect(() => {
     axios.get(`https://fakestoreapi.com/products/${params.id}`).then((res) => {
@@ -51,7 +52,9 @@ const ProductPage = ({ params }: { params: { id: number } }) => {
 
             <button
               className="bg-red-500 p-3 text-white font-semibold rounded-sm"
-              onClick={() => {}}
+              onClick={() => {
+                console.log(productDetails);
+              }}
             >
               Add to Cart
             </button>
