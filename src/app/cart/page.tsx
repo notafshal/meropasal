@@ -2,6 +2,7 @@
 import { useCart } from "@/app/context/CartContext";
 
 import CartCard from "@/components/CartCard";
+import GoBack from "@/components/goBack";
 import { useEffect, useState } from "react";
 
 const Cart = () => {
@@ -25,6 +26,7 @@ const Cart = () => {
   return (
     <>
       <div className="h-lvh overflow-scroll ">
+        <GoBack />
         <div>
           <h1 className="text-center my-4">
             Your

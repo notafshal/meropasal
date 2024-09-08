@@ -1,6 +1,7 @@
 "use client";
 
 import Card from "@/components/Card";
+import GoBack from "@/components/goBack";
 import axios from "axios";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -35,6 +36,7 @@ const CategoryPage = ({ params }: { params: { category: string } }) => {
   return (
     <>
       <div className="my-2 w-screen min-h-screen overflow-scroll">
+        <GoBack />
         <main className="flex-grow my-2 w-full">
           <h1 className="text-center font-light md:font-normal">
             Category page for{" "}

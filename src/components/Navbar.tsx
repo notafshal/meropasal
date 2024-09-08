@@ -31,10 +31,11 @@ const Navbar = () => {
                   Category
                 </li>
               </Link>
-
-              <li className="hover:bg-white hover:text-red-500 px-2 rounded-sm">
-                SignIn
-              </li>
+              <Link href="/login">
+                <li className="hover:bg-white hover:text-red-500 px-2 rounded-sm">
+                  SignIn
+                </li>
+              </Link>
             </ul>
           </div>
           <Link href="/cart">

@@ -1,6 +1,7 @@
 "use client";
 
 import CategoryCard from "@/components/CategoryCard";
+import GoBack from "@/components/goBack";
 import axios from "axios";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -20,6 +21,7 @@ const Category = () => {
     <>
       <div>
         <h1 className="text-center my-5 ">
+          <GoBack />
           All <span className="bg-red-500 text-white">Categories</span>{" "}
         </h1>
         <div className="w-full  min-h-screen grid grid-cols-2 md:grid-cols-4">

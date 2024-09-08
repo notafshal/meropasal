@@ -5,6 +5,8 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useCart } from "@/app/context/CartContext";
 
+import GoBack from "@/components/goBack";
+
 interface ProductDetails {
   id: number;
   title: string;
@@ -46,6 +48,7 @@ const ProductPage = ({ params }: { params: { id: number } }) => {
   return (
     <>
       <div className="mt-10 mx-4 h-screen ">
+        <GoBack />
         <Image
           src={productDetails?.image}
           className="mx-auto h-36 w-36 md:h-52 md:w-52 lg:h-72 lg:w-72"
