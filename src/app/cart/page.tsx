@@ -1,14 +1,10 @@
 "use client";
-import axios from "axios";
-import { useEffect } from "react";
-import { IoCartOutline } from "react-icons/io5";
-import { CartProvider, useCart } from "react-use-cart";
-const Cart = () => {
-  const { isEmpty, totalUniqueItems, items, updateItemQuantity, removeItem } =
-    useCart();
-  console.log(items);
-  if (isEmpty) return <p className="text-center my-2">Your cart is Empty</p>;
+import { useCart } from "@/app/context/CartContext";
+import { Key, ReactNode } from "react";
 
+const Cart = () => {
+  const { addCart } = useCart();
+  console.log();
   return (
     <>
       <div className="h-lvh overflow-scroll ">
@@ -18,6 +14,21 @@ const Cart = () => {
             <span className="p-1 text-white bg-red-500">Cart</span>
             <span></span>
           </h1>
+        </div>
+        <div>
+          <ul>
+            {addCart.map(
+              (item: {
+                title: ReactNode;
+                price: ReactNode;
+                id: Key | null | undefined;
+              }) => (
+                <li key={item.id}>
+                  {item.title} -Rs {item.price}
+                </li>
+              )
+            )}
+          </ul>
         </div>
       </div>
     </>

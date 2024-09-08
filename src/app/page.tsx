@@ -2,11 +2,10 @@
 import Card from "@/components/Card";
 
 import axios from "axios";
-import { get } from "http";
-import Image from "next/image";
+
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { CartProvider } from "react-use-cart";
+
 import { Hourglass } from "react-css-spinners";
 export default function Home() {
   const [data, setData] = useState<any[]>([]);

@@ -3,7 +3,8 @@ import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { useCart } from "react-use-cart";
+import { useCart } from "@/app/context/CartContext";
+
 interface ProductDetails {
   id: number;
   title: string;
@@ -17,14 +18,30 @@ interface ProductDetails {
   };
 }
 const ProductPage = ({ params }: { params: { id: number } }) => {
-  const { addItem } = useCart();
   const [productDetails, setProductDetails] = useState<ProductDetails | null>();
+  const { addToCart } = useCart();
+  const [cartMessage, setCartMessage] = useState<string>("");
+  const [isAddedToCart, setIsAddedToCart] = useState<boolean>(false);
   useEffect(() => {
     axios.get(`https://fakestoreapi.com/products/${params.id}`).then((res) => {
       console.log(res.data);
       setProductDetails(res.data);
     });
   }, [params.id]);
+
+  const handleAddtoCart = () => {
+    if (productDetails) {
+      addToCart(productDetails);
+      setCartMessage(productDetails?.title);
+      setIsAddedToCart(true);
+    }
+  };
+  const handleBuyNow = () => {
+    if (productDetails) {
+      addToCart(productDetails);
+      setIsAddedToCart(false);
+    }
+  };
 
   return (
     <>
@@ -46,18 +63,29 @@ const ProductPage = ({ params }: { params: { id: number } }) => {
             Rs. {productDetails?.price}
           </p>{" "}
           <div className="flex gap-4">
-            <button className="bg-red-500 p-3 text-white font-semibold rounded-sm">
-              Buy Now
-            </button>
-
+            <Link href="/cart">
+              <button
+                className="bg-red-500 p-3 text-white font-semibold rounded-sm"
+                onClick={handleBuyNow}
+              >
+                Buy Now
+              </button>
+            </Link>
             <button
               className="bg-red-500 p-3 text-white font-semibold rounded-sm"
-              onClick={() => {
-                console.log(productDetails);
-              }}
+              onClick={handleAddtoCart}
             >
               Add to Cart
             </button>
+            {isAddedToCart && (
+              <p className="font-extralight text-sm my-2">
+                Your item{" "}
+                <span className="md:bg-red-500 md:text-white md:p-1">
+                  {cartMessage}
+                </span>{" "}
+                has been added to the cart.
+              </p>
+            )}
           </div>
           <p className=" text-sm bg-yellow-400 p-2 rounded-xl text-center text-white font-semibold ">
             Total Purchases : {productDetails?.rating.count}
