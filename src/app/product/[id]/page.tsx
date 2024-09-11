@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useCart } from "@/app/context/CartContext";
 
-import GoBack from "@/components/goBack";
+import GoBack from "@/components/GoBack";
 
 interface ProductDetails {
   id: number;

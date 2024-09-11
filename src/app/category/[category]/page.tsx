@@ -1,7 +1,7 @@
 "use client";
 
 import Card from "@/components/Card";
-import GoBack from "@/components/goBack";
+import GoBack from "@/components/GoBack";
 import axios from "axios";
 import Link from "next/link";
 import { useEffect, useState } from "react";

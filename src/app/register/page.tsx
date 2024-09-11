@@ -1,6 +1,6 @@
 "use client";
 
-import GoBack from "@/components/goBack";
+import GoBack from "@/components/GoBack";
 import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
