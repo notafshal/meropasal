@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 
 import { FaHeadphones, FaTshirt } from "react-icons/fa";
 import { GiAmpleDress, GiDiamondRing } from "react-icons/gi";
+import CategoryPage from "./[category]/page";
 
 const Category = () => {
   const [categories, setCategories] = useState<any[]>([]);
@@ -17,6 +18,7 @@ const Category = () => {
       console.log(res.data);
     });
   }, []);
+
   return (
     <>
       <div>

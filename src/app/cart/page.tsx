@@ -1,6 +1,5 @@
 "use client";
 import { useCart } from "@/app/context/CartContext";
-
 import CartCard from "@/components/CartCard";
 import GoBack from "@/components/goBack";
 import { useEffect, useState } from "react";
