@@ -1,7 +1,7 @@
 "use client";
 import { useCart } from "@/app/context/CartContext";
 import CartCard from "@/components/CartCard";
-import GoBack from "@/components/goBack";
+import GoBack from "@/components/GoBack";
 import { useEffect, useState } from "react";
 
 const Cart = () => {
