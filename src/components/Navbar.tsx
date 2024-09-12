@@ -4,8 +4,11 @@ import { useState } from "react";
 import { FaShoppingCart } from "react-icons/fa";
 import { FaBars } from "react-icons/fa6";
 import { VscClose } from "react-icons/vsc";
+import { useCart } from "@/app/context/CartContext";
 const Navbar = () => {
   const [isClick, setisClick] = useState<boolean>(false);
+  const { addCart } = useCart();
+  const cartNumber = addCart.length;
   const toogleNav = (): void => {
     setisClick(!isClick);
   };
@@ -39,8 +42,11 @@ const Navbar = () => {
             </ul>
           </div>
           <Link href="/cart">
-            <FaShoppingCart className="mx-3 text-[1.5em] text-white md:ml-32 hover:bg-white hover:text-red-500 rounded-sm cursor-pointer" />
+            <FaShoppingCart className=" mx-3 text-[1.5em] text-white md:ml-32 hover:bg-white hover:text-red-500 rounded-sm cursor-pointer" />
           </Link>
+          <div className="flex items-center justify-cente text-red-500 text-xs mb- -mx-4 bg-white rounded-full h-3  overflow-hidden ">
+            {cartNumber}
+          </div>
         </div>
         <div className="m-3 ">
           <button className="md:hidden" onClick={toogleNav}>

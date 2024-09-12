@@ -1,6 +1,7 @@
 "use client";
 
 import GoBack from "@/components/GoBack";
+import Link from "next/link";
 import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
@@ -89,9 +90,18 @@ const Register = () => {
           </div>
 
           <div className="text-center my-2">
-            <button className="bg-red-500 p-2 px-5 text-white font-medium rounded-3xl ">
-              Create Account
-            </button>
+            <Link href="/login">
+              <button
+                className="bg-red-500 p-2 px-5 text-white font-medium rounded-3xl "
+                onClick={() => {
+                  alert(
+                    "Registeration successful.Since this is a dummy api this feature doesnt work"
+                  );
+                }}
+              >
+                Create Account
+              </button>
+            </Link>
           </div>
         </div>
       </div>

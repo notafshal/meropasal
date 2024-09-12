@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 const Cart = () => {
   const { addCart, clearCart } = useCart();
   const [total, setTotal] = useState<number>(0);
-  let sum = 0;
+
   const items = addCart.map((item) => {
     return item.price;
   });

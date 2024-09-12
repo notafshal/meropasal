@@ -50,9 +50,18 @@ const Login = () => {
           </div>
         </div>
         <div className="text-center my-2">
-          <button className="bg-red-500 p-2 px-5 text-white font-medium rounded-3xl ">
-            Login
-          </button>
+          <Link href="/">
+            <button
+              className="bg-red-500 p-2 px-5 text-white font-medium rounded-3xl "
+              onClick={() => {
+                alert(
+                  "login successful.Since this is a dummy api this feature doesnt work"
+                );
+              }}
+            >
+              Login
+            </button>
+          </Link>
         </div>
         <div className="mx-auto flex justify-center flex-col mt-7">
           <h2>Dont have an Account? Create One</h2>
