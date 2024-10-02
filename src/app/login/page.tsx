@@ -24,7 +24,6 @@ const Login = () => {
           <label className="flex mb-1 mr-5 justify-center font-extralight">
             Email
           </label>
-
           <input
             placeholder="email"
             className="p-2 mx-auto border-2 rounded-3xl "
@@ -52,7 +51,7 @@ const Login = () => {
         <div className="text-center my-2">
           <Link href="/">
             <button
-              className="bg-red-500 p-2 px-5 text-white font-medium rounded-3xl "
+              className="bg-red-500 p-2 px-5 text-white font-medium rounded-3xl mt-4"
               onClick={() => {
                 alert(
                   "login successful.Since this is a dummy api this feature doesnt work"
@@ -63,8 +62,7 @@ const Login = () => {
             </button>
           </Link>
         </div>
-        <div className="mx-auto flex justify-center flex-col mt-7">
-          <h2>Dont have an Account? Create One</h2>
+        <div className="mx-auto flex justify-center flex-col mt-4 border-t-4 p-11">
           <Link href="/register" className="mx-auto">
             <button className="bg-red-500 mx-auto p-2 px-5 text-white font-medium rounded-3xl ">
               Register

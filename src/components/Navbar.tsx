@@ -28,17 +28,17 @@ const Navbar = () => {
             <ul className="flex flex-row gap-4 cursor-pointer text-white mr-5 lg:gap-10  ">
               <Link href="/">
                 {" "}
-                <li className="hover:bg-white hover:text-red-500 px-2 rounded-sm">
+                <li className="hover:bg-white hover:rounded-md hover:text-red-500 px-2 rounded-sm">
                   Home
                 </li>
               </Link>
               <Link href="/category">
-                <li className="hover:bg-white hover:text-red-500 px-2 rounded-sm">
+                <li className="hover:bg-white hover:rounded-md hover:text-red-500 px-2 rounded-sm">
                   Category
                 </li>
               </Link>
               <Link href="/login">
-                <li className="hover:bg-white hover:text-red-500 px-2 rounded-sm">
+                <li className="hover:bg-white hover:rounded-md hover:text-red-500 px-2 rounded-sm">
                   SignIn
                 </li>
               </Link>
