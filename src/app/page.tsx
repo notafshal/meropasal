@@ -6,7 +6,8 @@ import axios from "axios";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 
-import { Hourglass } from "react-css-spinners";
+import { Circle, Hourglass, Roller } from "react-css-spinners";
+
 export default function Home() {
   const [data, setData] = useState<any[]>([]);
   const [error, setError] = useState<string | null>(null);
@@ -25,11 +26,10 @@ export default function Home() {
   }, []);
   if (isLoading) {
     return (
-      <p className=" font-semibold text-xl mx-5 px-5 my-5">
-        <Hourglass className=" bg-black" />
+      <div className="font-semibold text-xl mx-auto flex justify-center w-screen h-screen">
+        <Roller color="red" className="my-auto" />
         <br />
-        Loading......
-      </p>
+      </div>
     );
   }
   if (error) {

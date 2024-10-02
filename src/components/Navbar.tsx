@@ -7,6 +7,7 @@ import { VscClose } from "react-icons/vsc";
 import { useCart } from "@/app/context/CartContext";
 const Navbar = () => {
   const [isClick, setisClick] = useState<boolean>(false);
+
   const { addCart } = useCart();
   const cartNumber = addCart.length;
   const toogleNav = (): void => {
@@ -15,11 +16,13 @@ const Navbar = () => {
   return (
     <>
       <nav className="sticky z-100 h-12 md:h-18  w-full bg-red-500 flex flex-row justify-between">
-        <div className="ml-5">
-          <p className="text-white py-2 lg:py-3">
-            mero<span className="text-yellow-300 font-semibold">Pasal</span>
-          </p>
-        </div>
+        <Link href="/">
+          <div className="ml-5">
+            <p className="text-white py-2 lg:py-3">
+              mero<span className="text-yellow-300 font-semibold">Pasal</span>
+            </p>
+          </div>
+        </Link>
         <div className="mt-3 flex flex-row ">
           <div className="hidden md:block ">
             <ul className="flex flex-row gap-4 cursor-pointer text-white mr-5 lg:gap-10  ">
@@ -44,9 +47,13 @@ const Navbar = () => {
           <Link href="/cart">
             <FaShoppingCart className=" mx-3 text-[1.5em] text-white md:ml-32 hover:bg-white hover:text-red-500 rounded-sm cursor-pointer" />
           </Link>
-          <div className="flex items-center justify-cente text-red-500 text-xs mb- -mx-4 bg-white rounded-full h-3  overflow-hidden ">
-            {cartNumber}
-          </div>
+          {cartNumber === 0 ? (
+            <div className="hidden"></div>
+          ) : (
+            <div className="flex items-center justify-center text-red-500 text-xs  -mx-4 bg-white rounded-full h-3  overflow-hidden ">
+              {cartNumber}
+            </div>
+          )}
         </div>
         <div className="m-3 ">
           <button className="md:hidden" onClick={toogleNav}>
