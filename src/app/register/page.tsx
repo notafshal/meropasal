@@ -2,7 +2,6 @@
 
 import GoBack from "@/components/GoBack";
 import axios from "axios";
-import Link from "next/link";
 import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useRouter } from "next/navigation";
