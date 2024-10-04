@@ -12,6 +12,7 @@ export default function Home() {
   const [data, setData] = useState<any[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setisLoading] = useState<boolean>(true);
+  const [user, setUser] = useState(null);
   useEffect(() => {
     axios
       .get("https://fakestoreapi.com/products")
@@ -24,6 +25,14 @@ export default function Home() {
         setisLoading(false);
       });
   }, []);
+
+  if (user === null) {
+    return (
+      <>
+        <h2>Log in the application</h2>
+      </>
+    );
+  }
   if (isLoading) {
     return (
       <div className="font-semibold text-xl mx-auto flex justify-center w-screen h-screen">

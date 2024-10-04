@@ -16,7 +16,7 @@ const Login = () => {
   });
   const [error, setError] = useState<string>("");
   const router = useRouter();
-
+  const [token, setToken] = useState("");
   const showPassword = () => {
     const passwordTypes = ["password", "text"];
     setIsShowingPassword(!isShowingPassword);
@@ -33,11 +33,17 @@ const Login = () => {
         password: user.password,
       })
       .then((result) => {
-        localStorage.setItem("token", result.data.token);
-        //router.push("/");
+        console.log(result);
+
+        if (result.data.status === "success") {
+          console.log(`logged in successfully ${user}`);
+          router.push("/");
+        }
+        localStorage.setItem("token", JSON.stringify(result.data.token));
       })
       .catch((err) => console.log(err.response));
   };
+
   return (
     <div className="h-screen w-screen">
       <div className="flex flex-col gap-4 bg-gray-300 h-screen lg:w-72 lg:h-fit lg:rounded-md lg:mx-auto lg:my-28 lg:p-10 ">
